@@ -17,11 +17,11 @@ const RouterInfo: RouterInfoType[] = [
     element: <Switch.MainPage />,
     label: '메인페이지',
   },
-  // {
-  //   path: `${PAGE_URL.Todo}`,
-  //   element: <Switch.MainPage />,
-  //   label: '메인페이지',
-  // },
+  {
+    path: `${PAGE_URL.Todo}`,
+    element: <Switch.TodoPage />,
+    label: '투두페이지',
+  },
 ];
 
 const router = createBrowserRouter([
