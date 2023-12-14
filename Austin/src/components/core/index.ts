@@ -1,2 +1,2 @@
 // Austin\src\components\core\index.ts
-export * from './buttons';
+export * from './buttons/movetodopage';

@@ -1,4 +1,4 @@
-import MoveTodo from '@/components/core/buttons/MoveTodo';
+import MoveTodo from '@/components/core/buttons/movetodopage/MoveTodoPageButton';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as Styles from './MainPage.styled';
