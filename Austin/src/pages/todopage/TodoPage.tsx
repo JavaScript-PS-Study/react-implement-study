@@ -5,10 +5,10 @@ import { useGetTodos, usePostTodo } from '@/hooks/quries/todo';
 import React, { useEffect } from 'react';
 
 import * as Styles from './TodoPage.styled';
-import DeleteAllTodo from '@/components/core/buttons/deletetodo/DeleteTodo';
+import { TodoType } from '@/types/todo';
 
 const TodoPage = () => {
-  const { data: todoList = null, isLoading, isError } = useGetTodos();
+  const { data: todoList = null, isLoading, isError } = useGetTodos<TodoType>();
   const { mutate: todoPostMutate } = usePostTodo();
 
   const loginSubmitHandler = async (
@@ -22,18 +22,13 @@ const TodoPage = () => {
     todoPostMutate(todoContent);
   };
 
-  console.log(todoList);
-
-  if (todoList === null || !todoList.length) {
-    return <EmptyList />;
+  if (todoList === null) {
+    return null;
   }
+  console.log(todoList);
   return (
     <Styles.TodoPageWrapper>
-      {todoList.length && (
-        <>
-          <List todoList={todoList} />
-        </>
-      )}
+      {todoList[1] ? <List todoList={todoList} /> : <EmptyList />}
 
       <div>
         <form onSubmit={loginSubmitHandler}>

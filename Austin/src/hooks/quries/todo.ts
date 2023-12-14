@@ -1,17 +1,17 @@
 import { todoApi } from '@/apis/todo';
 import {
-  QueryClient,
+  UseQueryResult,
   useMutation,
   useQuery,
   useQueryClient,
 } from '@tanstack/react-query';
 
-export const useGetTodos = <K = any>(options?: K) => {
+export const useGetTodos = <T, K = any>(options?: K): UseQueryResult<T> => {
   return useQuery({
     queryKey: ['getTodo'],
     queryFn: async () => {
-      const result = await todoApi.getToDoList();
-      return result?.json();
+      const result = await todoApi.getToDoList<T>();
+      return result;
     },
     staleTime: 36000000,
     ...options,

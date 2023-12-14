@@ -1,7 +1,7 @@
 import { BASE_URL } from '@/config/const';
 
 export const todoApi = {
-  getToDoList: async () => {
+  getToDoList: async <T>(): Promise<T | undefined> => {
     try {
       const response = await fetch(`${BASE_URL}/todo/all`, {
         method: 'GET',
@@ -13,7 +13,7 @@ export const todoApi = {
       if (!response.ok) {
         throw new Error(`${response.status}`);
       }
-      return await response;
+      return response.json();
     } catch (e) {
       console.error(e);
     }

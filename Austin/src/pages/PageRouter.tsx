@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-
 import App from '@/App';
 import * as Switch from '@/pages';
 import { PAGE_URL } from '@/config/path';
@@ -20,7 +19,7 @@ const RouterInfo: RouterInfoType[] = [
   {
     path: `${PAGE_URL.Todo}`,
     element: <Switch.TodoPage />,
-    label: '투두페이지',
+    label: 'Todo페이지',
   },
 ];
 
